@@ -1,10 +1,16 @@
 # Assessment / Quiz
 
+## Overview
+- **Lesson:** Cloud Native Application - Remote Containerization
+- **Format:** 10 questions (mix MCQ / True–False / Short Answer)
+- **Time:** ~10–15 minutes
+- **Scoring:** 1 point each (unless stated)
+
 ## Questions
 
 ### Q1 (True/False)
 
-Q1: Containerization bundles an application's code with all the files and libraries it needs to run on any infrastructure?
+Q1: Cloud native applications are independent services packaged as lightweight containers that are portable and can be scaled rapidly?
 
 A - True
 
@@ -12,19 +18,19 @@ B - False
 
 ---
 
-Q2: What is the main difference between containers and virtual machines?
+Q2: Which Cloud Native principle states that containers should be immutable and not change between different environments?
 
-A - Containers virtualize the entire operating system, VMs only package the application
+A - Single Concern
 
-B - Containers package the application with dependencies, VMs virtualize hardware and OS
+B - Image Immutability
 
-C - There is no difference
+C - Process Disposability
 
-D - Containers are slower than VMs
+D - Runtime Confinement
 
 ---
 
-Q3: Docker is a platform that allows you to build, test, and deploy applications in containers?
+Q3: A container image registry acts as a place to store and share container images?
 
 A - True
 
@@ -32,31 +38,31 @@ B - False
 
 ---
 
-Q4: Which Dockerfile instruction sets the base image for subsequent instructions?
+Q4: In semantic versioning (MAJOR.MINOR.PATCH), which number should be incremented for backwards-compatible bug fixes?
 
-A - COPY
+A - MAJOR
 
-B - RUN
+B - MINOR
 
-C - FROM
+C - PATCH
 
-D - CMD
-
----
-
-Q5: What is the purpose of the EXPOSE instruction in a Dockerfile?
-
-A - To run commands
-
-B - To copy files
-
-C - To inform Docker that the container listens on a specified network port
-
-D - To set environment variables
+D - BUILD
 
 ---
 
-Q6: The command `docker ps` lists all running containers?
+Q5: What does the version number 2.1.3 represent in semantic versioning?
+
+A - Major: 2, Minor: 1, Patch: 3
+
+B - Major: 1, Minor: 2, Patch: 3
+
+C - Major: 3, Minor: 2, Patch: 1
+
+D - Year: 2, Month: 1, Day: 3
+
+---
+
+Q6: The command `docker push` is used to upload an image to a container registry?
 
 A - True
 
@@ -64,19 +70,19 @@ B - False
 
 ---
 
-Q7: What does the `-d` flag do in the `docker run -d` command?
+Q7: When you add a breaking change to your application, which version number should be incremented?
 
-A - Deletes the container after running
+A - MAJOR
 
-B - Runs the container in detached mode (background)
+B - MINOR
 
-C - Debugs the container
+C - PATCH
 
-D - Downloads the image
+D - None
 
 ---
 
-Q8: In multi-stage Docker builds, artifacts from one stage can be copied to another stage?
+Q8: Docker Hub can store both custom application images and official base images?
 
 A - True
 
@@ -84,27 +90,23 @@ B - False
 
 ---
 
-Q9: Which command is used to build a Docker image from a Dockerfile?
+Q9: What does the `latest` tag represent in Docker images?
 
-A - docker create
+A - The oldest version
 
-B - docker build
+B - The most recently pushed version
 
-C - docker make
+C - A specific version number
 
-D - docker compile
+D - An error tag
 
 ---
 
-Q10: What is the main benefit of multi-stage Docker builds?
+Q10: In production environments, it is recommended to use specific version tags (like 1.0.0) rather than the `latest` tag?
 
-A - Faster build times only
+A - True
 
-B - Simpler workflow by combining build and runtime in one Dockerfile
-
-C - Larger image sizes
-
-D - More complex configuration
+B - False
 
 ## Notes
 - Keep each question atomic and aligned to the lesson objectives.
