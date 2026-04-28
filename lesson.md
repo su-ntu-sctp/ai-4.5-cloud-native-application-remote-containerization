@@ -38,7 +38,7 @@ This lesson is essential when we move towards learning CI/CD Pipeline using cont
 
 ---
 
-## Self Studies Check (10 minutes)
+## Revision Check (10 minutes)
 
 **Q1: Which of the following describes the Cloud Native App?**
 
@@ -66,7 +66,7 @@ D - It allows software update with zero downtime
 
 ---
 
-## Part 1 - Principles of Cloud Native App (20 minutes)
+## Part 1 - Principles of Cloud Native App
 
 The quick answer to *what makes an app cloud native* is simply `use of container technology` or `serverless`. This is half true because there are qualities in how "cloud native" your application is. To migrate a traditional software into cloud native applications is not an easy feat. Some migrations can take months and years to complete.
 
@@ -74,44 +74,44 @@ Instead of nailing the *practical outcomes* such as containerization or serverle
 
 ### Cloud Native Principles
 
-**1. Single Concern**  
+**1. Single Concern**
 Every container should address a single concern and do it well.
 
 **Example:** A web server container should only serve web requests, not also handle database operations.
 
-**2. High Observability**  
+**2. High Observability**
 Containerized applications must provide APIs for system health checks and logging.
 
 **Example:** Your Spring Boot app exposes `/actuator/health` endpoint for monitoring.
 
-**3. Lifecycle Conformance**  
+**3. Lifecycle Conformance**
 Containers should be able to read events and react to them. Sample events include `PreStart`, `PostStop`, `SIGTERM` (Terminate Signal), and `SIGKILL` (Kill Signal).
 
 **Example:** When a container receives a shutdown signal, it should gracefully close connections before stopping.
 
-**4. Image Immutability**  
+**4. Image Immutability**
 Containers should be immutable and should not change between different environments.
 
 **Example:** The same Docker image runs in development, staging, and production without modifications.
 
-**5. Process Disposability**  
+**5. Process Disposability**
 Containers should be disposable or recyclable, meaning they can be replaced by another container instance at any point in time.
 
 **Example:** If a container crashes, the orchestrator (like Kubernetes) can quickly replace it with a new instance.
 
-**6. Self Containment**  
+**6. Self Containment**
 Containers should contain everything they need at build time. They should rely only on the presence of the Linux kernel and any other libraries or dependencies at the time they are built.
 
 **Example:** Your Docker image includes Java, your JAR file, and all dependencies - nothing else needs to be installed.
 
-**7. Runtime Confinement**  
+**7. Runtime Confinement**
 Every container should declare its resource requirements and pass that information to the platform, and adhere to those requirements.
 
 **Example:** Container declares it needs 512MB RAM and 0.5 CPU cores.
 
 ---
 
-## Part 2 - What is a Container Image Registry (10 minutes)
+## Part 2 - What is a Container Image Registry
 
 A container registry acts as a place to store container images and share them via a process of uploading (**pushing**) to the registry and downloading (**pulling**) into another system. Once you pull the image, the application within it can be run on that system.
 
@@ -149,9 +149,9 @@ A container registry acts as a place to store container images and share them vi
 
 1. Developers push code to a version control system such as GitHub
 2. When code changes are detected, the CI/CD system will:
-   - Clone the repository  
-   - Build a container image  
-   - Publish the image to an image registry  
+   - Clone the repository
+   - Build a container image
+   - Publish the image to an image registry
 3. When deployment is triggered, the system pulls the image from the registry and deploys it
 
 **Benefits of Container Registries:**
@@ -162,11 +162,11 @@ A container registry acts as a place to store container images and share them vi
 
 ---
 
-## Part 3 - Semantic Versioning (25 minutes)
+## Part 3 - Semantic Versioning
 
 In automated deployment processes such as Continuous Deployment, systems need to identify which image to pull from a registry. Images are uniquely identified using **tags**, which are typically version numbers.
 
-The most common versioning approach is **Semantic Versioning** (SemVer).  
+The most common versioning approach is **Semantic Versioning** (SemVer).
 
 **Reference:** https://semver.org/
 
@@ -179,8 +179,8 @@ MAJOR.MINOR.PATCH
 **Example:** `2.1.5`
 
 - **MAJOR** – Incompatible API changes (breaking changes)
-- **MINOR** – Backwards-compatible feature additions  
-- **PATCH** – Backwards-compatible bug fixes  
+- **MINOR** – Backwards-compatible feature additions
+- **PATCH** – Backwards-compatible bug fixes
 
 ### Examples
 
@@ -194,9 +194,9 @@ MAJOR.MINOR.PATCH
 
 ### Release Cycle Terms
 
-- **Alpha** – Features are incomplete and core elements are still under heavy testing  
-- **Beta** – Software is tested by a larger group of users, often external  
-- **RC (Release Candidate)** – All features are complete with no known critical bugs  
+- **Alpha** – Features are incomplete and core elements are still under heavy testing
+- **Beta** – Software is tested by a larger group of users, often external
+- **RC (Release Candidate)** – All features are complete with no known critical bugs
 
 **Examples:**
 - `1.0.0-alpha.1` - First alpha release
@@ -206,28 +206,28 @@ MAJOR.MINOR.PATCH
 
 ---
 
-### 👨‍💻 Activity – Semantic Versioning Discussion (10 minutes)
+### 👨‍💻 Activity 1 – Semantic Versioning Discussion (10 minutes)
 
 Based on the given scenarios, discuss what should be the next version of the software.
 
-**Scenario 1**  
-Current version: `2.1.3`  
+**Scenario 1**
+Current version: `2.1.3`
 A new feature and two patches are added. No breaking changes.
 
 **Answer:** `2.2.0` (Minor version bump for new feature, patch count resets)
 
 ---
 
-**Scenario 2**  
-Current version: `2.1.3`  
+**Scenario 2**
+Current version: `2.1.3`
 A breaking change with three new features and more than ten patches.
 
 **Answer:** `3.0.0` (Major version bump for breaking change, minor and patch reset)
 
 ---
 
-**Scenario 3**  
-Current version: `2.1.3`  
+**Scenario 3**
+Current version: `2.1.3`
 Six new features added.
 
 **Answer:** `2.2.0` or `2.7.0` depending on strategy:
@@ -238,7 +238,7 @@ Most teams use the first approach.
 
 ---
 
-## Part 4 - Push and Pull Images to and from Docker Hub (70 minutes)
+## Part 4 - Push and Pull Images to and from Docker Hub
 
 In this section, **Docker Hub** will be used as the container image registry. Docker Hub is a service provided by Docker for finding and sharing container images.
 
@@ -246,7 +246,7 @@ You will use the `docker push` and `docker pull` commands with your **Spring Boo
 
 ---
 
-### Step 1: Docker Hub Account Creation (10 minutes)
+### Step 1: Docker Hub Account Creation
 
 **If you don't have a Docker Hub account:**
 
@@ -265,7 +265,7 @@ You will use the `docker push` and `docker pull` commands with your **Spring Boo
 
 ---
 
-### Step 2: Sign in to Docker Desktop (5 minutes)
+### Step 2: Sign in to Docker Desktop
 
 **Option 1: Via Docker Desktop UI**
 1. Open Docker Desktop
@@ -302,7 +302,7 @@ Username: your_dockerhub_username
 
 ---
 
-### Step 3: Create Docker Hub Repository (10 minutes)
+### Step 3: Create Docker Hub Repository
 
 1. Go to https://hub.docker.com
 2. Click **Repositories** (top menu)
@@ -332,7 +332,7 @@ john123/devops-demo:1.0.1
 
 ---
 
-### Step 4: Modify Your Application (5 minutes)
+### Step 4: Modify Your Application
 
 Make a small visible change so you can verify the new image works.
 
@@ -347,7 +347,7 @@ public String hello() {
 
 ---
 
-### Step 5: Rebuild JAR and Docker Image (10 minutes)
+### Step 5: Rebuild JAR and Docker Image
 
 **Navigate to your project:**
 ```bash
@@ -377,7 +377,7 @@ target/devops-demo-0.0.1-SNAPSHOT.jar
 
 ---
 
-### Step 6: Build and Tag Docker Image (10 minutes)
+### Step 6: Build and Tag Docker Image
 
 You have two options for building and tagging:
 
@@ -434,7 +434,7 @@ john123/devops-demo          latest    abc123def456   10 seconds ago   350MB
 
 ---
 
-### Step 7: Push Image to Docker Hub (10 minutes)
+### Step 7: Push Image to Docker Hub
 
 **Make sure you're logged in:**
 ```bash
@@ -457,8 +457,8 @@ docker push john123/devops-demo:latest
 **Expected output:**
 ```
 The push refers to repository [docker.io/john123/devops-demo]
-5f70bf18a086: Pushed 
-a5b456789def: Pushed 
+5f70bf18a086: Pushed
+a5b456789def: Pushed
 latest: digest: sha256:abc123...xyz789 size: 1234
 ```
 
@@ -473,7 +473,7 @@ latest: digest: sha256:abc123...xyz789 size: 1234
 
 ---
 
-### Step 8: Pull Image from Docker Hub (5 minutes)
+### Step 8: Pull Image from Docker Hub
 
 Now let's simulate pulling the image on a different machine.
 
@@ -505,7 +505,7 @@ docker.io/john123/devops-demo:latest
 
 ---
 
-### Step 9: Run the Pulled Image (5 minutes)
+### Step 9: Run the Pulled Image
 
 ```bash
 docker run -d -p 8080:8080 YOUR_USERNAME/devops-demo:latest
@@ -514,11 +514,6 @@ docker run -d -p 8080:8080 YOUR_USERNAME/devops-demo:latest
 **Example:**
 ```bash
 docker run -d -p 8080:8080 john123/devops-demo:latest
-```
-
-**Expected output:**
-```
-def789ghi012jkl345mno678pqr901stu234vwx567yza890bcd123
 ```
 
 **Test your application:**
@@ -584,7 +579,7 @@ docker push john123/devops-demo:latest
 
 ---
 
-### 👨‍💻 Activity – Partner Exercise: Pull and Run (15 minutes)
+### 👨‍💻 Activity 2 – Partner Exercise: Pull and Run (15 minutes)
 
 Work with a partner to practice pulling and running each other's images.
 
@@ -624,7 +619,7 @@ docker rm CONTAINER_ID
 
 ---
 
-## Part 5 - Docker Hub Base Images (15 minutes)
+## Part 5 - Docker Hub Base Images *(Optional)*
 
 Docker Hub is not only a storage for application images; it also hosts **base images** used to create Dockerfiles.
 
@@ -659,7 +654,7 @@ CMD ["java", "-jar", "app.jar"]
 
 ---
 
-### 👨‍💻 Activity – Find Base Images (15 minutes)
+### 👨‍💻 Activity 3 – Find Base Images *(Optional)*
 
 Use Docker Hub (https://hub.docker.com) to find suitable base images for:
 
@@ -669,7 +664,7 @@ Use Docker Hub (https://hub.docker.com) to find suitable base images for:
 - Which tag would you use for Node.js 20?
 - **Answer:** `node:20` or `node:20-alpine`
 
-**2. Java Spring Boot application**  
+**2. Java Spring Boot application**
 - Search for "java" or "eclipse-temurin"
 - Find official Eclipse Temurin image
 - Which tag would you use for Java 21?
@@ -699,7 +694,6 @@ Use Docker Hub (https://hub.docker.com) to find suitable base images for:
 4. ✅ Created a Docker Hub account and repository
 5. ✅ Built, tagged, and pushed images to Docker Hub
 6. ✅ Pulled and ran images from Docker Hub
-7. ✅ Explored base images available on Docker Hub
 
 ### Key Takeaways
 
@@ -787,28 +781,10 @@ docker run -d -p 8080:8080 USERNAME/devops-demo:latest
 
 ## Additional Resources
 
-### Docker Hub Documentation
 - [Docker Hub Quickstart](https://docs.docker.com/docker-hub/)
 - [Docker Hub Repositories](https://docs.docker.com/docker-hub/repos/)
 - [Official Images](https://docs.docker.com/docker-hub/official_images/)
-
-### Docker Commands Reference
 - [docker push](https://docs.docker.com/engine/reference/commandline/push/)
 - [docker pull](https://docs.docker.com/engine/reference/commandline/pull/)
 - [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
-
-### Semantic Versioning
 - [Semantic Versioning Specification](https://semver.org/)
-- [Versioning Best Practices](https://semver.org/#faq)
-
-### Video Tutorials
-- [Docker Hub Tutorial](https://www.youtube.com/results?search_query=docker+hub+tutorial)
-- [Container Registry Explained](https://www.youtube.com/results?search_query=container+registry+explained)
-
----
-
-**End of Lesson 4.5**
-
-**Congratulations!** You've successfully pushed your first Docker image to Docker Hub and learned how to share containerized applications. This is a crucial skill for modern DevOps practices! 🎉
-
-**Next Lesson:** Lesson 4.6 - Docker Compose (Multi-container Applications)
