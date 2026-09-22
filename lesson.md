@@ -40,7 +40,7 @@ This lesson is essential when we move towards learning CI/CD Pipeline using cont
 
 ## Revision Check (10 minutes)
 
-**Q1: Which of the following describes the Cloud Native App?**
+**Q1: Which of the following describes a cloud native application?**
 
 A - Cloud native applications are independent services, packaged as self-contained, lightweight containers that are portable and can be scaled (in or out) rapidly based on the demand
 
@@ -50,9 +50,14 @@ C - They are delivered with CI/CD toolchains
 
 D - All of the above
 
+<details>
+       <summary>Answer:</summary>
+       D - All of the above
+</details>
+
 ---
 
-**Q2: Which of the following is NOT a benefit of Cloud Native App?**
+**Q2: Which of the following is NOT a benefit of cloud native applications?**
 
 A - It makes event driven architecture possible
 
@@ -62,11 +67,14 @@ C - It is typically smaller than traditional app and it makes deployment easier
 
 D - It allows software update with zero downtime
 
-**Answers will be discussed during the lesson.**
+<details>
+       <summary>Answer:</summary>
+       C - It is typically smaller than traditional app and it makes deployment easier
+</details>
 
 ---
 
-## Part 1 - Principles of Cloud Native App
+## Part 1 - Principles of Cloud Native Applications
 
 The quick answer to *what makes an app cloud native* is simply `use of container technology` or `serverless`. This is half true because there are qualities in how "cloud native" your application is. To migrate a traditional software into cloud native applications is not an easy feat. Some migrations can take months and years to complete.
 
@@ -214,7 +222,10 @@ Based on the given scenarios, discuss what should be the next version of the sof
 Current version: `2.1.3`
 A new feature and two patches are added. No breaking changes.
 
-**Answer:** `2.2.0` (Minor version bump for new feature, patch count resets)
+<details>
+       <summary>Answer:</summary>
+       `2.2.0` (Minor version bump for new feature, patch count resets)
+</details>
 
 ---
 
@@ -222,7 +233,10 @@ A new feature and two patches are added. No breaking changes.
 Current version: `2.1.3`
 A breaking change with three new features and more than ten patches.
 
-**Answer:** `3.0.0` (Major version bump for breaking change, minor and patch reset)
+<details>
+       <summary>Answer:</summary>
+       `3.0.0` (Major version bump for breaking change, minor and patch reset)
+</details>
 
 ---
 
@@ -230,11 +244,10 @@ A breaking change with three new features and more than ten patches.
 Current version: `2.1.3`
 Six new features added.
 
-**Answer:** `2.2.0` or `2.7.0` depending on strategy:
-- `2.2.0` if you bump minor once for "this release has features"
-- `2.7.0` if you bump minor for each feature (6 features = +6 to minor)
-
-Most teams use the first approach.
+<details>
+       <summary>Answer:</summary>
+       `2.2.0` -  bump minor version once as "this release has several new features"
+</details>
 
 ---
 
@@ -665,7 +678,7 @@ Use Docker Hub (https://hub.docker.com) to find suitable base images for:
 - **Answer:** `node:20` or `node:20-alpine`
 
 **2. Java Spring Boot application**
-- Search for "java" or "eclipse-temurin"
+- Search for "java" or "eclipse-temurin" on Docker Hub
 - Find official Eclipse Temurin image
 - Which tag would you use for Java 21?
 - **Answer:** `eclipse-temurin:21` or `eclipse-temurin:21-jdk-alpine`
